@@ -1,0 +1,33 @@
+.nav-bar {
+    display: flex;
+    background-color: antiquewhite;
+    justify-content: flex-start;
+    align-items: center;
+    height: 3em;
+}
+
+.nav-button {
+    background-color: transparent;
+    padding: 0.5em 1em;
+    margin: 0 0.5em;
+    border: none;
+    cursor: pointer;
+}
+
+.nav-home {
+    font-size: 1.4em;
+}
+
+.nav-item {
+    font-size: 1.03em;
+}
+
+.nav-user-container {
+    margin-left: auto;
+    display: flex;
+}
+
+.nav-user {
+    background-color:bisque;
+    margin-left: 0;
+}

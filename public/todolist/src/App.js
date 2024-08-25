@@ -1,22 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import LoginPage from './components/login/login';
+import RegisterPage from './components/register/register';
+import TaskDisplay from './components/taskdisplay/taskdisplay';
 import './App.css';
 
 function App() {
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    fetch('http://localhost:8000/api/hello')  // URL to your backend endpoint
-      .then(response => response.json())
-      .then(data => setData(data))
-      .catch(error => console.error('Error:', error));
-  }, []);
-
-return (
-  <div>
-    <h1>Data from Backend:</h1>
-    {data ? <p>{data.message}</p> : <p>Loading...</p>}
-  </div>
-);
+  return (
+    <Router>
+      <Routes>
+        <Route path='/' element={<TaskDisplay />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path='/register' element={<RegisterPage />} />
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;
