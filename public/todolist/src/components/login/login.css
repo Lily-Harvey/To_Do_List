@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 3em);
+    height: calc(100vh);
     position: relative;
     overflow: hidden;
 }
@@ -69,4 +69,23 @@
 
 .login-button:hover {
     background-color: #0056b3;
+}
+
+
+.register-button2 {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #6c757d; /* Secondary color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+.register-button2:hover {
+    background-color: #5a6268; /* Darker shade for hover */
 }
