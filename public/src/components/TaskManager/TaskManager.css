@@ -1,0 +1,212 @@
+/* Main container with centered layout and blurred background */
+.task-manager-background {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.task-manager-background::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://c4.wallpaperflare.com/wallpaper/586/603/742/minimalism-4k-for-mac-desktop-wallpaper-preview.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: blur(4px);
+    z-index: -1;
+    transform: scale(1.1);
+}
+
+/* Container for task manager content with a translucent background */
+.task-manager-container {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.9);
+    width: 30%;
+    max-width: 800px; /* Increased max-width for better spacing on larger screens */
+    padding: 30px; /* Increased padding for better spacing */
+    border-radius: 12px; /* Slightly rounded corners for a modern look */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* More prominent shadow */
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* Sign-out button styling */
+.sign-out-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px; /* Larger padding for a more prominent button */
+    border-radius: 6px; /* Slightly larger border radius */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.sign-out-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Title styling */
+.task-manager-container h1 {
+    font-size: 2.5rem; /* Larger font size for better visibility */
+    margin-bottom: 30px; /* More margin for spacing */
+    color: #333;
+}
+
+/* Task list styling */
+.task-list {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+.task-list-item {
+    display: flex;
+    flex-direction: column; /* Stack title and description vertically */
+    padding: 20px; /* Increased padding for better spacing */
+    margin-bottom: 15px; /* Increased margin for spacing */
+    background: #fff;
+    border-radius: 8px; /* Slightly larger border radius */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* More prominent shadow */
+}
+
+.task-title {
+    font-weight: bold; /* Bold title for emphasis */
+    font-size: 1.2rem; /* Slightly larger font size for title */
+    margin-bottom: 5px; /* Space between title and description */
+    color: #333;
+}
+
+.task-description {
+    font-size: 1rem; /* Standard font size for description */
+    color: #666;
+}
+
+.task-actions {
+    margin-top: 10px; /* Space above action buttons */
+    display: flex;
+    gap: 10px; /* Space between action buttons */
+}
+
+/* Button and form styling */
+button {
+    border: none;
+    padding: 12px 20px; /* Larger padding for better button appearance */
+    margin-left: 10px;
+    font-size: 1rem; /* Slightly larger font size */
+    color: #fff;
+    background-color: #007bff;
+    border-radius: 6px; /* Slightly larger border radius */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.task-create-form, .task-edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Increased gap for better spacing */
+    width: 100%;
+}
+
+input[type="text"], textarea {
+    width: 100%;
+    padding: 12px; /* Larger padding for input elements */
+    border: 1px solid #ddd;
+    border-radius: 6px; /* Slightly larger border radius */
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* Error message styling */
+.error-message {
+    color: #d9534f;
+    font-size: 1rem; /* Larger font size for better readability */
+}
+
+/* Responsive Styles */
+
+/* For screens smaller than 1200px */
+@media (max-width: 1200px) {
+    .task-manager-container {
+        max-width: 90%; /* Adjusted max-width for better spacing */
+    }
+}
+
+/* For screens smaller than 768px */
+@media (max-width: 768px) {
+    .task-manager-container {
+        padding: 20px;
+        max-width: 90%;
+    }
+
+    .task-list-item {
+        padding: 15px;
+    }
+
+    .sign-out-btn {
+        top: 15px;
+        right: 15px;
+        padding: 10px 15px;
+    }
+
+    .task-manager-container h1 {
+        font-size: 2rem;
+    }
+
+    button {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+
+    .task-create-form, .task-edit-form {
+        gap: 15px;
+    }
+}
+
+/* For screens smaller than 480px */
+@media (max-width: 480px) {
+    .task-manager-container {
+        max-width: 100%;
+        margin: 0 10px;
+    }
+
+    .task-list-item {
+        padding: 10px;
+    }
+
+    .sign-out-btn {
+        top: 10px;
+        right: 10px;
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
+
+    .task-manager-container h1 {
+        font-size: 1.5rem;
+    }
+
+    button {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
+
+    .task-create-form, .task-edit-form {
+        gap: 10px;
+    }
+}

@@ -1,3 +1,4 @@
+/* Container for the login page background */
 .login-background {
     display: flex;
     justify-content: center;
@@ -7,6 +8,7 @@
     overflow: hidden;
 }
 
+/* Blurred background image for the login page */
 .login-background::before {
     content: "";
     position: absolute;
@@ -18,32 +20,35 @@
     background-size: cover;
     background-position: center;
     filter: blur(4px);
-    z-index: -1;
-    transform: scale(1.1);
+    z-index: -1; /* Positioned behind the panel */
+    transform: scale(1.1); /* Slightly scaled for full coverage */
 }
 
+/* Panel for the login form */
 .login-panel {
     display: flex;
     flex-direction: column;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.9); /* Slight transparency */
     width: 100%;
     max-width: 400px;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
     justify-content: center;
     align-items: center;
     position: relative;
-    z-index: 1;
+    z-index: 1; /* Positioned above the background */
     box-sizing: border-box;
 }
 
+/* Title styling for the login form */
 .login-title {
     font-size: 2rem;
     margin-bottom: 20px;
     color: #333;
 }
 
+/* Input fields styling in the login form */
 .login-input {
     width: 100%;
     padding: 10px;
@@ -54,10 +59,11 @@
     box-sizing: border-box;
 }
 
+/* Button styling for login submission */
 .login-button {
     width: 100%;
     padding: 10px;
-    background-color: #007bff;
+    background-color: #007bff; /* Primary color */
     color: white;
     border: none;
     border-radius: 5px;
@@ -68,10 +74,10 @@
 }
 
 .login-button:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Darker shade on hover */
 }
 
-
+/* Button styling for registration redirection */
 .register-button2 {
     width: 100%;
     padding: 10px;
@@ -87,5 +93,5 @@
 }
 
 .register-button2:hover {
-    background-color: #5a6268; /* Darker shade for hover */
+    background-color: #5a6268; /* Darker shade on hover */
 }

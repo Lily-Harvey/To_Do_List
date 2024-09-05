@@ -2,12 +2,14 @@ import React from "react";
 
 function DeleteTask({ id, onTaskDeleted }) {
 
+    // Function to handle task deletion
     const handleDelete = async () => {
         try {
+            // Make DELETE request to remove the task
             const response = await fetch(`http://localhost:8000/api/tasks/${id}/`, {
                 method: 'DELETE',
                 headers: {
-                    'Authorization': `Bearer ${localStorage.getItem('accessToken')}`,
+                    'Authorization': `Bearer ${localStorage.getItem('accessToken')}`, // Use stored access token for authentication
                 },
             });
 

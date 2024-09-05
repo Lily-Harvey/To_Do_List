@@ -1,21 +1,24 @@
 import React, { useState, useEffect } from "react";
 
 function TaskEdit({ id, onTaskUpdated }) {
+    // State variables for task title, description, and error messages
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [error, setError] = useState('');
 
+    // Fetch task data when component mounts or id changes
     useEffect(() => {
         const fetchTask = async () => {
             try {
                 const response = await fetch(`http://localhost:8000/api/tasks/${id}/`, {
                     headers: {
-                        'Authorization': `Bearer ${localStorage.getItem('accessToken')}`,
+                        'Authorization': `Bearer ${localStorage.getItem('accessToken')}`, // Use stored access token for authentication
                     },
                 });
 
                 if (response.ok) {
                     const data = await response.json();
+                    // Set state with fetched task data
                     setTitle(data.title);
                     setDescription(data.description);
                 } else {
@@ -27,8 +30,9 @@ function TaskEdit({ id, onTaskUpdated }) {
         };
 
         fetchTask();
-    }, [id]);
+    }, [id]); // Dependency array to refetch when id changes
 
+    // Handle form submission for updating the task
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -37,9 +41,9 @@ function TaskEdit({ id, onTaskUpdated }) {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${localStorage.getItem('accessToken')}`,
+                    'Authorization': `Bearer ${localStorage.getItem('accessToken')}`, // Use stored access token for authentication
                 },
-                body: JSON.stringify({ title, description }),
+                body: JSON.stringify({ title, description }), // Send updated task data
             });
 
             if (response.ok) {
@@ -69,6 +73,7 @@ function TaskEdit({ id, onTaskUpdated }) {
                     onChange={(e) => setDescription(e.target.value)}
                 />
                 <button type="submit">Update Task</button>
+                {/* Display error message if there is one */}
                 {error && <div className="error-message">{error}</div>}
             </form>
         </div>
